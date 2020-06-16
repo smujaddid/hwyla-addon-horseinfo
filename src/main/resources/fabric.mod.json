@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "horseinfo",
+  "version": "${version}",
+  "name": "Horse Info",
+  "description": "Horse Info is an addon for Hwyla using fabric mod loader",
+  "authors": [
+    "Pancham138"
+  ],
+  "contributors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/horseinfo/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.pancham138.horseinfo.HorseInfo"
+    ],
+    "client": [
+    ],
+    "server": []
+  },
+  "mixins": [
+  ],
+  "depends": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*",
+    "waila": ">=1.9.0"
+  },
+  "custom": {
+    "waila:plugins": {
+        "id": "horseinfo",
+        "initializer": "net.pancham138.horseinfo.HorseInfo"
+    }
+  }
+}
