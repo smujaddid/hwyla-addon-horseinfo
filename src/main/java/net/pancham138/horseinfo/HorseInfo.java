@@ -66,7 +66,7 @@ public class HorseInfo implements ModInitializer, IWailaPlugin, IEntityComponent
                 
                 addText(tooltip, "tooltip.horseinfo.jump", FORMAT.format(jumpHeight), colorJump);
 
-                final double speed = horse.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).getBaseValue() * 42.157787584f;
+                final double speed = horse.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).getBaseValue() * 42.157787584f;
                 
                 Formatting colorSpeed;
                 if (speed < 7.0f)
@@ -87,7 +87,7 @@ public class HorseInfo implements ModInitializer, IWailaPlugin, IEntityComponent
 
     public static Text getText(String key, String value, Formatting color) {
         Text text = new TranslatableText(key, value);
-        text.getStyle().setColor(color);
+        text.getStyle().withColor(color);
         return text;
     }
 

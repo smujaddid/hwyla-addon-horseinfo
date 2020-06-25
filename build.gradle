@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.2.7-SNAPSHOT'
+	id 'fabric-loom' version '0.4.29'
 	id 'maven-publish'
     id "com.wynprice.cursemaven" version "2.1.4"
 }
@@ -8,17 +8,17 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 archivesBaseName = project.archives_base_name
-version = project.mod_version
+version = "${project.mod_version}-${minecraft_version}"
 group = project.maven_group
 
 minecraft {
 }
 
 repositories {
-    // maven {
-    //     name = 'TehNut temporary maven'
-    //     url = 'https://github.com/TehNut/temporary-maven-thing/tree/master/maven'
-    // }
+    maven {
+        name = 'TehNut'
+        url = 'https://maven.tehnut.info'
+    }
     maven { url = "https://minecraft.curseforge.com/api/maven" }
 }
 
@@ -30,9 +30,9 @@ dependencies {
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
     
-    // modImplementation "mcp.mobius.waila:Hwyla:${project.hwyla_version}"
-    modCompile "curse.maven:hwyla:2931299"
-    modCompile "curse.maven:hwyla:2931303"
+    modImplementation "mcp.mobius.waila:Hwyla:${project.hwyla_version}"
+    // modCompile "curse.maven:hwyla:2987120"
+    // modCompile "curse.maven:hwyla:2987122"
 }
 
 processResources {
