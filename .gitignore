@@ -1,24 +1,36 @@
-#Gradle
+# gradle
+
 .gradle/
 build/
 out/
 classes/
 
-#IDEA
+# eclipse
+
+*.launch
+
+# idea
+
 .idea/
 *.iml
 *.ipr
 *.iws
 
-#vscode
+# vscode
+
 .settings/
 .vscode/
 bin/
 .classpath
 .project
 
-#fabric
+# fabric
+
 run/
 
-#Sublime Text
+# macos
+
+*.DS_Store
+
+# Sublime Text
 *.sublime*

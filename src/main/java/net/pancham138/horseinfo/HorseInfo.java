@@ -42,7 +42,7 @@ public class HorseInfo implements ModInitializer, IWailaPlugin, IEntityComponent
 
         registrar.addConfig(ENABLED, true);
         
-        registrar.registerComponentProvider(this, TooltipPosition.BODY, HorseBaseEntity.class);
+        registrar.addComponent(this, TooltipPosition.BODY, HorseBaseEntity.class);
     }
     
     @Override
