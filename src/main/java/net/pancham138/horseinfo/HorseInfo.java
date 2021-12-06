@@ -3,15 +3,10 @@ package net.pancham138.horseinfo;
 import java.text.DecimalFormat;
 import java.util.List;
 
+import mcp.mobius.waila.api.*;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 
-import mcp.mobius.waila.api.IEntityAccessor;
-import mcp.mobius.waila.api.IEntityComponentProvider;
-import mcp.mobius.waila.api.IPluginConfig;
-import mcp.mobius.waila.api.IRegistrar;
-import mcp.mobius.waila.api.IWailaPlugin;
-import mcp.mobius.waila.api.TooltipPosition;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -46,8 +41,8 @@ public class HorseInfo implements ModInitializer, IWailaPlugin, IEntityComponent
     }
     
     @Override
-    public void appendBody(List<Text> tooltip, IEntityAccessor accessor, IPluginConfig config) {
-        if (config.get(ENABLED)) {
+    public void appendBody(ITooltip tooltip, IEntityAccessor accessor, IPluginConfig config) {
+        if (config.getBoolean(ENABLED)) {
             final Entity entity = accessor.getEntity();
             
             if (entity instanceof HorseBaseEntity) {
@@ -81,7 +76,7 @@ public class HorseInfo implements ModInitializer, IWailaPlugin, IEntityComponent
         }
     }
 
-    public static void addText(List<Text> tooltip, String key, String value, Formatting color) {
+    public static void addText(ITooltip tooltip, String key, String value, Formatting color) {
         tooltip.add(getText(key, value, color));
     }
 
