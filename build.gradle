@@ -26,7 +26,7 @@ dependencies {
 
     // WTHIT
     modCompileOnly "mcp.mobius.waila:wthit-api:fabric-${project.wthit_version}"
-    modRuntime "mcp.mobius.waila:wthit:fabric-${project.wthit_version}"
+    modRuntimeOnly "mcp.mobius.waila:wthit:fabric-${project.wthit_version}"
 }
 
 processResources {
@@ -44,7 +44,7 @@ tasks.withType(JavaCompile).configureEach {
     // If Javadoc is generated, this must be specified in that task too.
     it.options.encoding = "UTF-8"
 
-    // Minecraft 1.17 (21w19a) upwards uses Java 16.
+    // Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
     it.options.release = 17
 }
 
@@ -65,16 +65,7 @@ jar {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            // add all the jars that should be included when publishing to maven
-            artifact(remapJar) {
-                builtBy remapJar
-            }
-            artifact("${project.buildDir.absolutePath}/libs/${archivesBaseName}-${project.version}.jar"){
-                builtBy remapJar
-            }
-            artifact(sourcesJar) {
-                builtBy remapSourcesJar
-            }
+            from components.java
         }
     }
 
