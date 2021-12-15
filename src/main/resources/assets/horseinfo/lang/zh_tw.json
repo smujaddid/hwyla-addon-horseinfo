@@ -3,5 +3,6 @@
     "tooltip.horseinfo.speed": "速度: %s 公尺/秒",
     
     "config.waila.plugin_horseinfo": "馬匹信息",
-    "config.waila.plugin_horseinfo.enabled": "啟用"
+    "config.waila.plugin_horseinfo.enabled": "啟用",
+    "config.waila.plugin_horseinfo.ignore_mount": "忽略騎馬"
 }
