@@ -4,5 +4,5 @@
     
     "config.waila.plugin_horseinfo": "Horse Info",
     "config.waila.plugin_horseinfo.enabled": "Enable",
-    "config.waila.plugin_horseinfo.ignoremount": "Ignore Mounted Horse"
+    "config.waila.plugin_horseinfo.ignore_mount": "Ignore Mounted Horse"
 }

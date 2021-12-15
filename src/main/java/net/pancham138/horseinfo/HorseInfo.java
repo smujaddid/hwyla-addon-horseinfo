@@ -24,7 +24,7 @@ public class HorseInfo implements ModInitializer, IWailaPlugin, IEntityComponent
     public static final String MOD_NAME = "Hwyla Addon Horse Info";
     
     private static final Identifier ENABLED = new Identifier(MOD_ID, "enabled");
-    private static final Identifier IGNORE_MOUNT = new Identifier(MOD_ID, "ignoremount");
+    private static final Identifier IGNORE_MOUNT = new Identifier(MOD_ID, "ignore_mount");
     private static final DecimalFormat FORMAT = new DecimalFormat("#.##");
     
     @Override
