@@ -10,9 +10,8 @@ import org.apache.logging.log4j.Logger;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.passive.HorseBaseEntity;
+import net.minecraft.entity.passive.AbstractHorseEntity;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
@@ -39,13 +38,13 @@ public class HorseInfo implements ModInitializer, IWailaPlugin, IEntityComponent
         registrar.addConfig(ENABLED, true);
         registrar.addConfig(IGNORE_MOUNT, false);
 
-        registrar.addComponent(this, TooltipPosition.BODY, HorseBaseEntity.class);
-        registrar.addOverride(this, HorseBaseEntity.class);
+        registrar.addComponent(this, TooltipPosition.BODY, AbstractHorseEntity.class);
+        registrar.addOverride(this, AbstractHorseEntity.class);
     }
 
     @Override
     public Entity getOverride(IEntityAccessor accessor, IPluginConfig config) {
-        if (config.getBoolean(IGNORE_MOUNT) && accessor.getEntity() instanceof HorseBaseEntity horse) {
+        if (config.getBoolean(IGNORE_MOUNT) && accessor.getEntity() instanceof AbstractHorseEntity horse) {
             final PlayerEntity player = accessor.getPlayer();
             if (player != null && player.hasVehicle() && player.getVehicle() == horse) {
                 return IEntityComponentProvider.EMPTY_ENTITY;
@@ -59,8 +58,8 @@ public class HorseInfo implements ModInitializer, IWailaPlugin, IEntityComponent
         if (config.getBoolean(ENABLED)) {
             final Entity entity = accessor.getEntity();
             
-            if (entity instanceof HorseBaseEntity) {
-                final HorseBaseEntity horse = (HorseBaseEntity)entity;
+            if (entity instanceof AbstractHorseEntity) {
+                final AbstractHorseEntity horse = (AbstractHorseEntity)entity;
 
                 final double jumpStrength = horse.getJumpStrength();
                 final double jumpHeight = -0.1817584952f * Math.pow(jumpStrength, 3) + 3.689713992f * Math.pow(jumpStrength, 2) + 2.128599134f * jumpStrength - 0.343930367f;
@@ -91,11 +90,11 @@ public class HorseInfo implements ModInitializer, IWailaPlugin, IEntityComponent
     }
 
     public static void addText(ITooltip tooltip, String key, String value, Formatting color) {
-        tooltip.add(getText(key, value, color));
+        tooltip.addLine(getText(key, value, color));
     }
 
     public static Text getText(String key, String value, Formatting color) {
-        Text text = new TranslatableText(key, value);
+        Text text = Text.translatable(key, value);
         text.getStyle().withColor(color);
         return text;
     }
