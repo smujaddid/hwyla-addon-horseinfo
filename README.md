@@ -1,5 +1,9 @@
 # Horse Info Mod - Waila Plugin
 
+```diff
+@@ This project has been discontinued as it is now integrated into WTHIT on Minecraft 1.19.2+ @@
+```
+
 ## License
 
 This project is using MIT License
